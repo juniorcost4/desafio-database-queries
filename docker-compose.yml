@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  pg-database-queries:
+    container_name: pg-database-queries
+    restart: always
+    image: 'postgres:12.2'
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/data/postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=queries_challenge
+    command: -p 5432
+
+volumes:
+  pgdata:
+    driver: local
